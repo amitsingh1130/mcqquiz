@@ -7,8 +7,9 @@ class McqQuiz extends StatefulWidget {
 }
 
 class McqQuizState extends State<McqQuiz> {
-  String currentquestiontext = "Press any button to start the quiz";
-  String optatext = "", optbtext = "", optctext = "", optdtext = "";
+  String currentquestiontext = "Start the quiz",buttontext='Start';
+  String  optatext = "", optbtext = "", optctext = "", optdtext = "";
+
   List<Widget> scores = [];
   int questionno = -1;
   int _selectedOption = 0;
@@ -23,6 +24,7 @@ class McqQuizState extends State<McqQuiz> {
       return;
     }
     if (questionno == -1) {
+      buttontext='Submit';
       questionno++;
       currentquestion = questions[questionno];
       currentquestiontext = currentquestion!.question;
@@ -98,7 +100,7 @@ class McqQuizState extends State<McqQuiz> {
         ),
         if (!istestover && questionno >= 0)
           Expanded(
-            flex: 5,
+            flex: 10,
             child: Center(
               child: GridView.count(
                 crossAxisCount: 2,
@@ -168,8 +170,8 @@ class McqQuizState extends State<McqQuiz> {
                 backgroundColor: Colors.green,
                 minimumSize: const Size.fromHeight(50),
               ),
-              child: const Text(
-                'Submit',
+              child:  Text(
+                buttontext,
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
               ),
               onPressed: () {
