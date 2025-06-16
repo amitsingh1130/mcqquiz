@@ -7,8 +7,8 @@ class McqQuiz extends StatefulWidget {
 }
 
 class McqQuizState extends State<McqQuiz> {
-  String currentquestiontext = "Start the quiz",buttontext='Start';
-  String  optatext = "", optbtext = "", optctext = "", optdtext = "";
+  String currentquestiontext = "Start the quiz", buttontext = 'Start';
+  String optatext = "", optbtext = "", optctext = "", optdtext = "";
 
   List<Widget> scores = [];
   int questionno = -1;
@@ -24,7 +24,7 @@ class McqQuizState extends State<McqQuiz> {
       return;
     }
     if (questionno == -1) {
-      buttontext='Submit';
+      buttontext = 'Submit';
       questionno++;
       currentquestion = questions[questionno];
       currentquestiontext = currentquestion!.question;
@@ -85,6 +85,28 @@ class McqQuizState extends State<McqQuiz> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
+        Expanded(
+          child: Center(
+            child: Image(
+              image: NetworkImage(
+                "https://3.bp.blogspot.com/-py5FbTZgvjo/YDi1bsQq16I/AAAAAAAACB0/BxejbJBcHA4AVfkB33WYC3YlVmxElM7BwCK4BGAYYCw/s1600/Varanasi%2BSoftware%2BJunction%2BPhone%2BLogo.png",
+              ),
+    ),),),
+        SizedBox(height: 20),
+
+        Container(
+          color: Colors.grey[300],
+          height: 100,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment. center ,
+            mainAxisAlignment: MainAxisAlignment. center ,
+            children: <Widget>[
+              Text('Stat the quiz'),
+            ],
+          ),
+        ),
+
+
         Expanded(
           flex: 3,
           child: Padding(
@@ -170,7 +192,7 @@ class McqQuizState extends State<McqQuiz> {
                 backgroundColor: Colors.green,
                 minimumSize: const Size.fromHeight(50),
               ),
-              child:  Text(
+              child: Text(
                 buttontext,
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
               ),

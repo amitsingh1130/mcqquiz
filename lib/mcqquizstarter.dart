@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'mcquiz.dart';
 
-
 class McqQuizStarter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -12,7 +11,8 @@ class McqQuizStarter extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.teal,
+              backgroundColor: Colors.blueGrey,
+
               title: const Card(
                 child: Text(
                   "Quiz App",
@@ -24,6 +24,7 @@ class McqQuizStarter extends StatelessWidget {
                 ),
               ),
               centerTitle: true,
+
             ),
             backgroundColor: Colors.grey.shade900,
             body: SafeArea(
