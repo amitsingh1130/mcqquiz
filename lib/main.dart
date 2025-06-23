@@ -42,11 +42,15 @@ class QuizQuestion {
 }
 
 class QuizPage extends StatefulWidget {
+
+
+
   @override
   _QuizPageState createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
+
   List<QuizQuestion> _questions = [];
   int _currentIndex = 0;
   int _score = 0;
@@ -57,12 +61,12 @@ class _QuizPageState extends State<QuizPage> {
   @override
   void initState() {
     super.initState();
-    loadQuestions();
+    loadQuestions('https://amitsingh1130.github.io/myjsonfiles/math.json');
   }
 
-  Future<void> loadQuestions() async {
+  Future<void> loadQuestions(String url) async {
     final response = await http.get(Uri.parse(
-        'https://amitsingh1130.github.io/myjsonfiles/math.json'));
+        url));
 
     if (response.statusCode == 200) {
       final List data = json.decode(response.body);
@@ -96,7 +100,6 @@ class _QuizPageState extends State<QuizPage> {
       });
     });
   }
-
   @override
   Widget build(BuildContext context) {
     if (_isLoading) {
