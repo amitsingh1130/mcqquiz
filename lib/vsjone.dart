@@ -1,29 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:mcqquiz/utilities.dart';
-class VsjOne extends StatelessWidget {
+import 'package:mcqquiz/classutilities.dart';
+
+class Subject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: Colors.teal,
-      appBar: AppBar(title: Text('VSJ One')),
+      appBar: AppBar(title: Text('Subject')),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment. stretch,
         children: [
           Center(
             child: ElevatedButton(
-              child: Text('Physics'),
+              child: Text('Maths'),
               onPressed: () {
-                Utilities.currentquizname="Physics";
-                Utilities.currentquizurl="Url";
+                print('');
+                Utilities.currentquizname = "Maths";
+                Utilities.currentquizurl =
+                    'https://amitsingh1130.github.io/myjsonfiles/maths.json';
+
                 Navigator.pushNamed(context, '/second');
               },
             ),
           ),
           Center(
             child: ElevatedButton(
-              child: Text('Maths'),
+              child: Text('Physics'),
               onPressed: () {
-                Utilities.currentquizname="Maths";
-                Utilities.currentquizurl="Url";
+                print('');
+                Utilities.currentquizname = "Physics";
+                Utilities.currentquizurl =
+                    'https://amitsingh1130.github.io/myjsonfiles/physics.json';
+
                 Navigator.pushNamed(context, '/second');
               },
             ),
