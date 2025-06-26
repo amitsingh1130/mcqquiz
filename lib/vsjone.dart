@@ -45,7 +45,7 @@ class Subject extends StatelessWidget {
                 Utilities.currentquizname = "Chemistry";
                 Utilities.currentquizurl =
                     "https://amitsingh1130.github.io/myjsonfiles/Chemistry.json";
-                Utilities.loadQuestions;
+                Utilities.loadQuestions();
                 Navigator.pushNamed(context, '/second');
               },
             ),
