@@ -5,12 +5,11 @@ class Subject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: Colors.teal,
       appBar: AppBar(title: Text('Subject')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment. stretch,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Center(
             child: ElevatedButton(
@@ -34,6 +33,19 @@ class Subject extends StatelessWidget {
                 Utilities.currentquizurl =
                     'https://amitsingh1130.github.io/myjsonfiles/physics.json';
 
+                Navigator.pushNamed(context, '/second');
+              },
+            ),
+          ),
+          Center(
+            child: ElevatedButton(
+              child: Text('Chemistry'),
+              onPressed: ()  {
+                print('object');
+                Utilities.currentquizname = "Chemistry";
+                Utilities.currentquizurl =
+                    "https://amitsingh1130.github.io/myjsonfiles/Chemistry.json";
+                Utilities.loadQuestions;
                 Navigator.pushNamed(context, '/second');
               },
             ),

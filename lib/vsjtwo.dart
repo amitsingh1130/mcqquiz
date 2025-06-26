@@ -6,6 +6,8 @@ import 'main.dart';
 import 'classutilities.dart';
 
 class VsjTwo extends StatefulWidget {
+  int questionno = 0;
+  String question = "";
   _VsjTwo createState() {
     return _VsjTwo();
   }
@@ -15,9 +17,9 @@ class _VsjTwo extends State<VsjTwo> with SingleTickerProviderStateMixin {
   String data = "";
 
   @override
-  void initState() {
+  void initState()  {
     super.initState();
-    loadQuestions();
+  // loadQuestions();
   }
 
   @override
@@ -25,17 +27,20 @@ class _VsjTwo extends State<VsjTwo> with SingleTickerProviderStateMixin {
     return Scaffold(
       backgroundColor: Colors.blue,
       appBar: AppBar(title: Text(Utilities.currentquizname)),
-      body: Column(children: []),
+      body: Column(children: [Text(widget.question),
+      ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent),
+          onPressed: (){
+        print('sumit');
+        widget.questionno++;
+         setState(() {
+
+        });
+      }, child: Text(widget.questionno.toString())),
+        Text(Utilities.questions[widget.questionno]['question'])
+
+
+      ]),
     );
   }
 
-  @override
-  Future<void> loadQuestions() async {
-    print(Utilities.currentquizurl);
-    final response = await http.get(Uri.parse(Utilities.currentquizurl));
-    if (response.statusCode == 200) {
-      final List data = json.decode(response.body);
-      print(data);
-    }
-  }
 }
