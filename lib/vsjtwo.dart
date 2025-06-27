@@ -35,8 +35,8 @@ class _VsjTwo extends State<VsjTwo> with SingleTickerProviderStateMixin {
          setState(() {
 
         });
-      }, child: Text(widget.questionno.toString())),
-        Text(Utilities.questions[widget.questionno]['question'])
+      }, child: Text(widget.questionno.toString(), style: TextStyle(fontSize: 28, color: Colors.black),)),
+        Text(Utilities.questions[widget.questionno]['question'], style: TextStyle(fontSize: 28, color: Colors.black),)
 
 
       ]),
