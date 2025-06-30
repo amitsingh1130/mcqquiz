@@ -122,22 +122,27 @@ class _QuizListPageState extends State<QuizListPage> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: Text('Select Quiz')),
+
+      appBar: AppBar(title: Text('Select Quiz',style: TextStyle(fontSize: 30,color: Colors.black,backgroundColor: Colors.indigoAccent)),centerTitle: true),
       body: ListView.builder(
         itemCount: quizList.length,
         itemBuilder: (context, index) {
           var quiz = quizList[index];
-          return ListTile(
-            title: Text('Quiz ${quiz['quizno']}: ${quiz['quizname']}'),
-            trailing: Icon(Icons.arrow_forward),
-            onTap: () async {
-              try {
-                await QuizUtilities.downloadQuizData(quiz['url']);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => QuizPage(quizName: quiz['quizname'])));
-              } catch (e) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to load quiz')));
-              }
-            },
+          return Center(
+            child: SizedBox(width: 400,height: 60,
+              child: ListTile(
+                title: Text('Quiz ${quiz['quizno']}: ${quiz['quizname']}',style: TextStyle(color: Colors.black,backgroundColor: Colors.yellowAccent,fontSize: 30),),
+                trailing: Icon(Icons.arrow_forward),
+                onTap: () async {
+                  try {
+                    await QuizUtilities.downloadQuizData(quiz['url']);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => QuizPage(quizName: quiz['quizname'])));
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to load quiz')));
+                  }
+                },
+              ),
+            ),
           );
         },
       ),
@@ -168,17 +173,19 @@ class _QuizPageState extends State<QuizPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('Score: ${QuizUtilities.score} / ${QuizUtilities.quizData.length}', style: TextStyle(fontSize: 24)),
-              ElevatedButton(
+              SizedBox(height: 50),
+              ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.yellow),
                   onPressed: () {
                     QuizUtilities.resetQuiz();
                     setState(() {});
                   },
-                  child: Text('Restart Quiz')),
-              ElevatedButton(
+                  child: Text('Restart Quiz',style: TextStyle(fontSize: 20,color: Colors.black),)),
+              SizedBox(height: 10),
+              ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text('Back to Quiz List')),
+                  child: Text('Back to Quiz List',style: TextStyle(fontSize: 20,color: Colors.black),)),
             ],
           ),
         ),
@@ -188,28 +195,28 @@ class _QuizPageState extends State<QuizPage> {
     var q = QuizUtilities.getCurrentQuestion();
 
     return Scaffold(
-      appBar: AppBar(title: Text(widget.quizName)),
+      appBar: AppBar(title: Text(widget.quizName,style: TextStyle(backgroundColor: Colors.lightGreenAccent,fontSize: 50),),centerTitle: true,),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text('Q${q['qno']}: ${q['question']}', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            SizedBox(height: 10),
+            Text('Q${q['qno']}: ${q['question']}', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,backgroundColor: Colors.lightBlueAccent,color: Colors.black)),
+            SizedBox(height: 150),
             ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.deepOrange),
-                onPressed: () => QuizUtilities.checkAnswer(1, nextQuestion), child: Text(q['opa'])),
+                onPressed: () => QuizUtilities.checkAnswer(1, nextQuestion), child: Text(q['opa'],style: TextStyle(fontSize: 28,color: Colors.black),)),
             SizedBox(height: 10),
             ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.lightBlue),
-                onPressed: () => QuizUtilities.checkAnswer(2, nextQuestion), child: Text(q['opb'])),
+                onPressed: () => QuizUtilities.checkAnswer(2, nextQuestion), child: Text(q['opb'],style: TextStyle(fontSize: 28,color: Colors.black),)),
             SizedBox(height: 10),
             ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors. teal),
-                onPressed: () => QuizUtilities.checkAnswer(3, nextQuestion), child: Text(q['opc'])),
+                onPressed: () => QuizUtilities.checkAnswer(3, nextQuestion), child: Text(q['opc'],style: TextStyle(fontSize:28,color: Colors.black),)),
             SizedBox(height: 10),
             ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors. indigo),
-                onPressed: () => QuizUtilities.checkAnswer(4, nextQuestion), child: Text(q['opd'])),
+                onPressed: () => QuizUtilities.checkAnswer(4, nextQuestion), child: Text(q['opd'],style: TextStyle(fontSize:28,color: Colors.black),)),
             SizedBox(height: 10),
             if (QuizUtilities.feedback.isNotEmpty)
-              Text(QuizUtilities.feedback, style: TextStyle(fontSize: 18, color: Colors.blue)),
+              Text(QuizUtilities.feedback, style: TextStyle(fontSize: 18, color: Colors.blue,backgroundColor: Colors.cyan)),
           ],
         ),
       ),
