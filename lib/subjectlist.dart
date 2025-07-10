@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mcqquiz/utilities.dart';
-
-class Subjectlist extends StatelessWidget {
+ class Subjectlist extends StatelessWidget {
 
 
   @override
@@ -10,7 +9,7 @@ class Subjectlist extends StatelessWidget {
        Scaffold(
         appBar: AppBar(title: Text('SubjectList'),centerTitle: true,),
         body: Column(
-          children: [
+          children: [Center(child: Text('One'),),
             Center(
               child: ElevatedButton( child: Text('Mathematics'),
                 onPressed: () {

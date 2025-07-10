@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:mcqquiz/questionbyquizzes.dart';
 import 'package:mcqquiz/quizzesbysubject.dart';
 import 'subjectlist.dart';
-import 'quizzesbysubject.dart';
-void main() {
-  runApp(MaterialApp(initialRoute: '/',
-     routes: {'/': (context) => Subjectlist(), '/second': (context) => quizzesbysubject()},
+ void main() {
+  runApp(MyApp(
   ));
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Subjectlist(),
+        '/second': (context) => Quizzesbysubject(),
+        '/third': (context) => Questionbyquizzes(),
+      },
+    );
+  }
 }

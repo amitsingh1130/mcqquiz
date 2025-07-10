@@ -1,40 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:mcqquiz/utilities.dart';
 
-import 'main.dart';
-
-class quizzesbysubject extends StatefulWidget {
-  _VsjTwo createState() {
-    return _VsjTwo();
-  }
-}
-
-class _VsjTwo extends State<quizzesbysubject> with SingleTickerProviderStateMixin {
-  String data = "";
+class Quizzesbysubject extends StatefulWidget {
+  const Quizzesbysubject({super.key});
 
   @override
-  void initState() {}
+  State<Quizzesbysubject> createState() => _QuizzesbysubjectState();
+}
 
+class _QuizzesbysubjectState extends State<Quizzesbysubject> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
-      appBar: AppBar(title: Text(Utilities.currentquizname)),
+      appBar: AppBar(title: Text('Quizzes by subject'), centerTitle: true),
       body: Column(
-        children: [
-
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [Center(child: Text('Two'),),
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/third');
+              },
+              child: Text('Go to Question by quizzes'),
+            ),
+          ),
           Center(
             child: ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/');
               },
-              child: Text('Go back to VSJ one'),
+              child: Text('Go back to subject list'),
             ),
           ),
-
-          Text(data),
-
-
         ],
       ),
     );
