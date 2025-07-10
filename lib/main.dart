@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mcqquiz/subjectlist.dart';
 import 'package:mcqquiz/questionbyquizzes.dart';
 import 'package:mcqquiz/quizzesbysubject.dart';
-import 'subjectlist.dart';
  void main() {
   runApp(MyApp(
   ));

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mcqquiz/questionbyquizzes.dart';
 
 class Questionbyquizzes extends StatefulWidget {
   const Questionbyquizzes({super.key});
