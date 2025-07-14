@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mcqquiz/utilities.dart';
 
 class Quizzesbysubject extends StatefulWidget {
   const Quizzesbysubject({super.key});
@@ -13,9 +14,8 @@ class _QuizzesbysubjectState extends State<Quizzesbysubject> {
     return Scaffold(
       appBar: AppBar(title: Text('Quizzes by subject'), centerTitle: true),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [Center(child: Text('Two'),),
-          Center(
+        children: [Center(child: Text('Two'),),SizedBox(height: 40,),Center(child: Text(' ${Utilities.currentquizname}'),),
+          SizedBox(height: 80,),Center(
             child: ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/third');

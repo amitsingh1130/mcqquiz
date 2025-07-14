@@ -9,7 +9,7 @@ import 'package:mcqquiz/utilities.dart';
        Scaffold(
         appBar: AppBar(title: Text('SubjectList'),centerTitle: true,),
         body: Column(
-          children: [Center(child: Text('One'),),
+          children: [Center(child: Text('one'),),
             Center(
               child: ElevatedButton( child: Text('Mathematics'),
                 onPressed: () {
