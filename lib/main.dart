@@ -24,7 +24,7 @@ class QuizListPage extends StatefulWidget {
 
 class _QuizListPageState extends State<QuizListPage> {
   final String quizListUrl =
-      'https://varanasi-software-junction.github.io/vsjpictures/quizlist.json';
+      'https://amitsingh1130.github.io/myjsonfiles/Quiz.json';
 
   List<dynamic> quizList = [];
   bool isLoading = true;
@@ -79,20 +79,20 @@ class _QuizListPageState extends State<QuizListPage> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: Text('Select a Quiz')),
+      appBar: AppBar(title: Text('👉 Select a Quiz 🎯 ',style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,fontSize: 25,color: Colors.white ),),backgroundColor:Colors.indigo,centerTitle: true,),
       body: ListView.builder(
         itemCount: quizList.length,
         itemBuilder: (context, index) {
           var quiz = quizList[index];
           return ListTile(
-            title: Text('Quiz ${quiz['quizno']}: ${quiz['quizname']}'),
+            title: Text('Quiz ${quiz['quizno']}: ${quiz['quizname']}',style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,fontSize: 25),),
             trailing: Icon(Icons.arrow_forward),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) =>
-                      QuizPage(quizUrl: quiz['url'], quizName: quiz['quizname']),
+                      QuizPage(quizUrl: quiz['url'], quizName: quiz['quizname'],),
                 ),
               );
             },
@@ -212,14 +212,14 @@ class _QuizPageState extends State<QuizPage> {
               Text('Your Score: $score / ${questions.length}',
                   style: TextStyle(fontSize: 24)),
               SizedBox(height: 20),
-              ElevatedButton(
+              ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 onPressed: resetQuiz,
-                child: Text('Restart Quiz'),
+                child: Text('Restart Quiz',style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,fontSize: 20,color: Colors.white),),
               ),
               SizedBox(height: 10),
-              ElevatedButton(
+              ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 onPressed: () => Navigator.pop(context),
-                child: Text('Back to Quiz List'),
+                child: Text('Back to Quiz List',style: TextStyle(fontWeight: FontWeight.bold,fontStyle: FontStyle.italic,fontSize: 20,color: Colors.white),),
               ),
             ],
           ),
@@ -238,24 +238,28 @@ class _QuizPageState extends State<QuizPage> {
           children: [
             Text(
               'Q${question['qno']}: ${question['question']}',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),
             ),
             SizedBox(height: 20),
-            ElevatedButton(
+            ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
               onPressed: () => checkAnswer(1),
-              child: Text(question['opa']),
-            ),
-            ElevatedButton(
+              child: Text(question['opa'],
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500,color: Colors.white),),
+            ),SizedBox(height: 15),
+            ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
               onPressed: () => checkAnswer(2),
-              child: Text(question['opb']),
-            ),
-            ElevatedButton(
+              child: Text(question['opb'],
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500,color: Colors.white),),
+            ),SizedBox(height: 15),
+            ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
               onPressed: () => checkAnswer(3),
-              child: Text(question['opc']),
-            ),
-            ElevatedButton(
+              child: Text(question['opc'],
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500,color: Colors.white),),
+            ),SizedBox(height: 15),
+            ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
               onPressed: () => checkAnswer(4),
-              child: Text(question['opd']),
+              child: Text(question['opd'],
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500,color: Colors.white),),
             ),
             SizedBox(height: 20),
             if (feedback.isNotEmpty)
