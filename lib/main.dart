@@ -4,12 +4,13 @@ import 'package:http/http.dart' as http;
 
 void main() {
   runApp(MultiQuizApp());
+
 }
 
 class MultiQuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp(debugShowCheckedModeBanner: false,
       title: 'Multi Quiz App',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: QuizListPage(),
@@ -240,7 +241,7 @@ class _QuizPageState extends State<QuizPage> {
               'Q${question['qno']}: ${question['question']}',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,fontStyle: FontStyle.italic),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 175),
             ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.teal),
               onPressed: () => checkAnswer(1),
               child: Text(question['opa'],
